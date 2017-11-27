@@ -1,0 +1,22 @@
+{
+  "name": "react-tooltip",
+  "version": "0.0.0",
+  "description": "A React tooltip library attempting to be in the React spirit.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartijnHols/react-tooltip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartijnHols/react-tooltip/issues"
+  },
+  "homepage": "https://github.com/MartijnHols/react-tooltip#readme"
+}
