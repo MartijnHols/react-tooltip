@@ -25,18 +25,6 @@ class AdditionRemoval extends React.PureComponent {
         <div>
           <div style={{ width: 300, display: 'inline-block' }}>
             <div style={{ width: '50%', float: 'left', minHeight: 1 }}>
-              {this.state.active && (
-                <Tooltip
-                  renderer="button"
-                  type="button"
-                  onClick={this.handleToggle}
-                  tooltip="I am very active. Please stop me."
-                >
-                  Deactivate
-                </Tooltip>
-              )}
-            </div>
-            <div style={{ width: '50%', float: 'left' }}>
               {!this.state.active && (
                 <Tooltip
                   renderer="button"
@@ -45,6 +33,18 @@ class AdditionRemoval extends React.PureComponent {
                   tooltip="I am currently inactive."
                 >
                   Activate
+                </Tooltip>
+              )}
+            </div>
+            <div style={{ width: '50%', float: 'left' }}>
+              {this.state.active && (
+                <Tooltip
+                  renderer="button"
+                  type="button"
+                  onClick={this.handleToggle}
+                  tooltip="I am very active. Please stop me."
+                >
+                  Deactivate
                 </Tooltip>
               )}
             </div>
