@@ -18,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/MartijnHols/react-tooltip/issues"
   },
-  "homepage": "https://github.com/MartijnHols/react-tooltip#readme"
+  "homepage": "https://github.com/MartijnHols/react-tooltip#readme",
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "babel-preset-react-app": "^3.1.0"
+  }
 }

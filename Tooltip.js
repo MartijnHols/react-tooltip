@@ -8,7 +8,7 @@ import './styles.css';
 class Tooltip extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    tooltip: PropTypes.node,
+    tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     renderer: PropTypes.string,
     className: PropTypes.string,
   };
@@ -52,7 +52,7 @@ class Tooltip extends React.PureComponent {
       >
         {this.state.open && (
           <Portal target={this.state.target}>
-            {tooltip}
+            {typeof tooltip === 'function' ? tooltip() : tooltip}
           </Portal>
         )}
         {children}
