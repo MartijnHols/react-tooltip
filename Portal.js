@@ -10,6 +10,9 @@ class TooltipPortal extends React.PureComponent {
     target: PropTypes.shape({
       getBoundingClientRect: PropTypes.func.isRequired,
     }).isRequired,
+    left: PropTypes.bool,
+    right: PropTypes.bool,
+    bottom: PropTypes.bool,
   };
 
   /** The element where the tooltip should be mounted. */
@@ -22,23 +25,41 @@ class TooltipPortal extends React.PureComponent {
     }
   }
 
-  getPositioning(target) {
+  getPositioning(target, position = 'top') {
     const rect = target.getBoundingClientRect();
 
-    // TODO: Implement alternative positioning
-    return {
-      top: rect.top,
-      left: rect.left + rect.width / 2,
-    };
+    switch (position) {
+      case 'left':
+        return {
+          top: rect.top + rect.height / 2,
+          left: rect.left,
+        };
+      case 'right':
+        return {
+          top: rect.top + rect.height / 2,
+          left: rect.left + rect.width,
+        };
+      case 'bottom':
+        return {
+          top: rect.top + rect.height,
+          left: rect.left + rect.width / 2,
+        };
+      default:
+        return {
+          top: rect.top,
+          left: rect.left + rect.width / 2,
+        };
+    }
   }
 
   render() {
-    const { children, target } = this.props;
+    const { children, target, left, right, bottom } = this.props;
 
-    const positioning = this.getPositioning(target);
+    const position = left ? 'left' : (right ? 'right' : (bottom ? 'bottom' : 'top'));
+    const positioning = this.getPositioning(target, position);
 
     return ReactDOM.createPortal((
-      <div className="tooltip" style={{ ...positioning }}>
+      <div className={`tooltip ${position}`} style={{ ...positioning }}>
         {children}
       </div>
     ), this.root);

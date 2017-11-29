@@ -21,7 +21,7 @@ class AdditionRemoval extends React.PureComponent {
   render() {
     return (
       <Wrapper>
-        Tooltip disappears when element disappears, and appears for new elements*:
+        Tooltip disappears when element disappears, and automatically works for new elements*:
         <div>
           <div style={{ width: 300, display: 'inline-block' }}>
             <div style={{ width: '50%', float: 'left', minHeight: 1 }}>

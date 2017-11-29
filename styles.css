@@ -1,10 +1,11 @@
 .tooltip {
   position: absolute;
-  background: #000;
+  background: rgba(0, 0, 0, 0.9);
   color: #fff;
-  padding: 5px;
-  transform: translateX(-50%) translateY(-100%);
-  margin-top: -5px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  /* Tooltips being 1 pixel smaller than regular text makes them look more natural. I think it's because they look less like the rest of the page content. */
+  font-size: 95%;
 }
 .tooltip:after {
   content: '';
@@ -13,9 +14,45 @@
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-top-color: #000;
+}
 
+.tooltip.top {
+  transform: translateX(-50%) translateY(-100%);
+  margin-top: -8px;
+}
+.tooltip.top:after {
+  border-top-color: #000;
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
+}
+.tooltip.bottom {
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+.tooltip.bottom:after {
+  border-bottom-color: #000;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  top: 0%;
+}
+.tooltip.left {
+  transform: translateX(-100%) translateY(-50%);
+  margin-left: -8px;
+}
+.tooltip.left:after {
+  border-left-color: #000;
+  left: 100%;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.tooltip.right {
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+.tooltip.right:after {
+  border-right-color: #000;
+  left: 0%;
+  transform: translateX(-100%) translateY(-50%);
+  top: 50%;
 }

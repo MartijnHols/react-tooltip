@@ -11,6 +11,10 @@ class Tooltip extends React.PureComponent {
     tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     renderer: PropTypes.string,
     className: PropTypes.string,
+    left: PropTypes.bool,
+    right: PropTypes.bool,
+    bottom: PropTypes.bool,
+    top: PropTypes.bool, // just here for people really wanting to specify it, setting this actually doesn't do anything since it's default
   };
   static defaultProps = {
     renderer: 'span',
@@ -41,7 +45,7 @@ class Tooltip extends React.PureComponent {
   }
 
   render() {
-    const { children, tooltip, renderer: Renderer, className, ...others } = this.props;
+    const { children, tooltip, renderer: Renderer, className, left, right, bottom, ...others } = this.props;
 
     return (
       <Renderer
@@ -51,7 +55,7 @@ class Tooltip extends React.PureComponent {
         {...others}
       >
         {this.state.open && (
-          <Portal target={this.state.target}>
+          <Portal target={this.state.target} left={left} right={right} bottom={bottom}>
             {typeof tooltip === 'function' ? tooltip() : tooltip}
           </Portal>
         )}
